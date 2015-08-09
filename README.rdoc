@@ -1,19 +1,20 @@
-ANKI style web application.
+ANKI style open-source web application.
+
 
 Features:
 
-	1. Memorise your vocabulary
+	1. Memorise your vocabulary. https://en.wikipedia.org/wiki/Spaced_repetition
 	
 	2. Groups the words by used kanjis.
 	
-	3. Continiously plays the vocabulary.
+	3. Continiously sound plays the vocabulary.
 
 
 Future devs:
 
        ** Add Export functionality.
        ** Automatic examination.
-       **
+       ** Parameterised Search(verbs, nouns..)
 	 
 
 * Ruby version 2.2.0
