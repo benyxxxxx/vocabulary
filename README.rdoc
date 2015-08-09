@@ -19,6 +19,11 @@ Future devs:
        ** Parameterised Search(verbs, nouns..)
 	 
 
+Key shortcats:
+
+S - speak the word.
+
+
 * Ruby version 2.2.0
 
 * Database initialization
