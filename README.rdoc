@@ -8,6 +8,8 @@ Features:
 	2. Groups the words by used kanjis.
 	
 	3. Continiously sound plays the vocabulary.
+	
+	4. Chrome integration. (Chrome extention is not added yet to the git) 
 
 
 Future devs:
