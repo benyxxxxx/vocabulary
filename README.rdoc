@@ -1,28 +1,26 @@
-== README
+ANKI style web application.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features:
 
-Things you may want to cover:
+	1. Memorise your vocabulary
+	
+	2. Groups the words by used kanjis.
+	
+	3. Continiously plays the vocabulary.
 
-* Ruby version
 
-* System dependencies
+Future devs:
 
-* Configuration
+       ** Add Export functionality.
+       ** Automatic examination.
+       **
+	 
 
-* Database creation
+* Ruby version 2.2.0
 
 * Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  Run rake db:schema:load to create a new db
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+

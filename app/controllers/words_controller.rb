@@ -35,44 +35,40 @@ class WordsController < ApplicationController
     @words = Word.all
   end
 
-  def index1
-  end
-  
+  ##test
   def react
   end
 
-  
+  ##test
   def tmp
 #    @words = Word.find(params[:id]);
   end
-
+  
+  ##test
   def tmpincr
     @word = Word.find_by_word(params[:name])
     @word.incrementDue(rand(10)*60*24);
     @word.save
-#    @words = Word.find(params[:id]);
-    puts "tmp111111111"
   end
   
-  def play
-    
+  # GET /words/play
+
+  def play  
     @words = Word.all;
-    
   end
+  
   
   def incrementdue 
     @word = Word.find(params[:id]);
     @word.incrementDue(params[:level]);
     @word.save
     redirect_to action: params[:task], continue: '1'  
-  
   end
 
   
   def indexSome
     @kanji = Kanji.find(params[:id]);
     @words = @kanji.getWords
-    
   end
 
   # GET /words/1
@@ -89,6 +85,7 @@ class WordsController < ApplicationController
 
   # GET /words/1/edit
   def edit
+    
   end
 
   def study
@@ -101,7 +98,8 @@ class WordsController < ApplicationController
     @word = Word.getCurrentWord
     @task = "study"
   end 
-  
+
+  ## API method 
   def stream
     response.headers['Content-Type'] = 'text/plain'    
     unless Word.find_by_word(params[:word]) 
@@ -153,8 +151,9 @@ class WordsController < ApplicationController
   # PATCH/PUT /words/1
   # PATCH/PUT /words/1.json
   def update
+    @word.kanjis.clear
     respond_to do |format|
-      if @word.update(word_params)
+      if @word.update(word_params) && @word.createLinks
         format.html { redirect_to @word, notice: 'Word was successfully updated.' }
         format.json { render :show, status: :ok, location: @word }
       else

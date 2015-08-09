@@ -23,7 +23,6 @@ class Word < ActiveRecord::Base
           kanji.save
         end
         self.kanjis << kanji;
-        #end
       end
     end
   end
@@ -68,11 +67,8 @@ class Word < ActiveRecord::Base
   end
 
   def setInLearn(inMinutes)
-    
-    self.duetime = Time.current() + inMinutes.minutes
-    
+    self.duetime = Time.current() + inMinutes.minutes    
     self.due = '2013-06-23'
-
     self.lastdelay = inMinutes
   end
   
@@ -86,7 +82,6 @@ class Word < ActiveRecord::Base
     else 
       ret = {"again" => 10, "hard" => self.lastdelay, 
           "good" => self.lastdelay*2, "easy" => self.lastdelay * 3} 
-      
     end
     
     return ret

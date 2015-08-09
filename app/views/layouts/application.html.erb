@@ -8,12 +8,42 @@
 </head>
 <body>
 
-<%= link_to 'Words', words_path %>
-<%= link_to 'Kanjis', kanjis_path %>
-<%= link_to 'New Word', new_word_path %>
-<%= link_to 'Study', :controller => '/words', :action => :study, :currentIdx  => 0 %>
-<%= link_to 'Play', :controller => '/words', :action => :play %>
-<a href="http://www3.nhk.or.jp/news/easy/index.html"> NHK </a>
+  <table id="section" align="center">
+    <tbody>
+      <tr>
+	
+
+	<td bgcolor="blue" style="width:60%;padding:5px" align="center;">
+	  <form>
+	    <%= raw("<a href=" + words_path +
+		" style=\"width:100%;color:white;line-height:24px;margin-left:20px;\">" +
+		"<span style=\"min-width:50px;font-size:14px;font-weight:40;color:white;display:inline-block;\">Words</span>" +
+		"</a>"); %>
+	    <%= raw("<a href=" + kanjis_path +
+		" style=\"width:100%;color:white;line-height:24px;margin-left:20px;\">" +
+		"<span style=\"min-width:50px;font-size:14px;font-weight:40;color:white;display:inline-block;\">Kanjis</span>" +
+		"</a>"); %>
+	    <%= raw("<a href=" + new_word_path +
+		" style=\"width:100%;color:white;line-height:24px;margin-left:20px;\">" +
+		"<span style=\"min-width:50px;font-size:14px;font-weight:40;color:white;display:inline-block;\">Add Word</span>" +
+		"</a>"); %>	    
+	    <%= raw("<a href=" + study_path +
+		"?currentIdx=0" +
+		" style=\"width:100%;color:white;line-height:24px;margin-left:20px;\">" +
+		"<span style=\"min-width:50px;font-size:14px;font-weight:40;color:white;display:inline-block;\">Study</span>" +
+		"</a>"); %>
+	    <%= raw("<a href=" + play_path +
+		" style=\"width:100%;color:white;line-height:24px;margin-left:20px;\">" +
+		"<span style=\"min-width:50px;font-size:14px;font-weight:40;color:white;display:inline-block;\">Play</span>" +
+		"</a>"); %>
+	  </form>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+  
+
+
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
