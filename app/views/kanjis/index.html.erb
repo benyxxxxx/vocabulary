@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Kanjis</h1>
+
+<table style="margin-left: 200px;width: 1000px;     text-decoration: none;">
+  <thead>
+    <tr>
+      <th>Kanji</th>
+      <th>Due</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kanjis.each_with_index do |kanji, index| %>
+    <% next if kanji.learned %>
+    <%= if index%10 == 0 then raw('<tr>') end %>
+    <td style="text-decoration: none;">
+      <%= link_to ("http://jisho.org/search/%23kanji%20#{kanji.kanji}") do %>
+      <font color="red" size="20px"><%= kanji.kanji %></font> 
+      <% end %>
+      </td> 
+    <td><%= link_to "Words(#{kanji.getWords().count})", :controller => "words", :action => "indexSome", :id => kanji.id %>
+      <%= link_to  "Learned", kanji_path(kanji, :kanji => {:learned => true} ),  :method => "patch"   %></td>
+      <%= if index%10 == 9 then raw('</tr>') end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kanji', new_kanji_path %>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dictionary</title>
+  <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to 'Words', words_path %>
+<%= link_to 'Kanjis', kanjis_path %>
+<%= link_to 'New Word', new_word_path %>
+<%= link_to 'Study', :controller => '/words', :action => :study, :currentIdx  => 0 %>
+<%= link_to 'Play', :controller => '/words', :action => :play %>
+<a href="http://www3.nhk.or.jp/news/easy/index.html"> NHK </a>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<div id="user_nav">
+  <% if user_signed_in? %>
+  Signed in as <%= current_user.email %>. This cannot be cheese?
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+  <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
+    <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<%= javascript_tag do %>
+
+window.onload = function() {
+
+
+document.getElementById("word_word").focus();
+}
+
+
+<% end %>
+<div style="font-size: 30px; margin-left: 200px">
+<h1>New Word</h1>
+<%= render 'form' %>
+<%= @words.count %>
+<%= link_to 'Back', words_path %>
+
+<%= render :template => 'words/index' -%>
+
+</div>

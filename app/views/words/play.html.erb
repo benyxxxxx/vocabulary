@@ -1,0 +1,99 @@
+
+<p id="notice"><%= notice %></p>
+
+
+
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
+<%= javascript_tag do %>
+
+
+function player() { 
+
+var i = 0;
+var on = false;
+var pp = null;
+var timer;
+
+var array = [];
+<% @words.shuffle.each do |word| %>
+array.push('<%=word.word%>');
+<% end %>
+
+
+var tt = {
+
+stopPlay: function () { 
+pp = pp ||  document.getElementById("Played");
+  console.log("STOP");
+  on = ! on; 
+  
+
+  if (on) {
+
+    timer = setInterval( function() {
+      i = i % array.length;
+      pp.innerHTML = array[i]; 
+      responsiveVoice.speak(array[i++], 'Japanese Female');
+    } , 3000);
+ 
+  } else {
+    clearTimeout(timer);  
+  } 
+}, 
+
+move: function(inc) {
+  pp = pp ||  document.getElementById("Played");
+  i += inc;
+  i = i % array.length;
+  pp.innerHTML = array[i]; 
+}
+
+}; 
+
+return tt; }
+
+var p = new player();
+
+
+
+
+document.onkeydown = function(e) {
+e = e || event; // "real browsers" || IE6/7.
+
+
+if (e.keyCode == 32) { 
+ p.stopPlay();
+
+}
+}
+
+function OnPlay() {
+p.stopPlay();
+}
+
+function OnForw() {
+p.move(1);
+}
+
+<% end %>
+
+
+
+<div style="margin-left: 500px;margin-top: 100px;width: 800px;     text-decoration: none; border:1px solid black;">
+  <div id="header" style="text-align:center;">
+    
+    <font color="red" size="7">  
+      <p id="Played" style="font-size:100px;font-family: TakaoExGothic;">
+      </p>
+    </font>
+    
+  </div>
+
+  <button onclick="p.move(-1)"><<<<<</button>
+  <button onclick="OnForw()">>>>></button>
+  <button onclick="OnPlay()">Play-Stop</button>
+  
+</div>
+
+

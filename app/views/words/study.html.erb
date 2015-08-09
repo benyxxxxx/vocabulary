@@ -1,0 +1,46 @@
+
+<p id="notice"><%= notice %></p>
+
+<% if @word != nil %>
+<div id="section" style="text-align:center;">
+  <%= render :template => 'words/show' -%>
+</div>
+<% else %>
+<div id="section" style="text-align:center;">
+  <p> <h1>Finished</h1> </p>
+</div>
+<% end %>
+
+
+<div id ="footer"  style="text-align:center;">
+  <table align="center">
+    <tbody>
+      <tr>
+	<td>
+	  <p>
+	    <%= "News("+@news.count.to_s+")" %>
+	  </p>
+	</td>
+      <td>
+	<p>
+	  <%= "Learning("+@inLearn.count.to_s+")" %>
+	</p>
+      </td>
+	<td>
+	  <p>
+	    <%= "Dues("+@dues.count.to_s+")" %>
+	  </p>
+	</td>
+	<td>
+	  <p>
+	  </p>
+	</td>
+      </tr>
+    </tbody>
+    
+  </table>  
+</dev>
+
+
+</dev>
+

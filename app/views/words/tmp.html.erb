@@ -1,0 +1,67 @@
+
+<p id="notice"><%= notice %></p>
+
+
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
+<%= javascript_tag do %>
+
+
+var ix = 0;
+var pp;
+var array = [];
+<% Word.getAdded().each do |word| %>
+array.push('<%=word.word%>');
+<% end %>
+
+window.onload = function() {
+showWord();
+};
+
+
+
+function showWord() {
+pp = document.getElementById("Played");
+pp.innerHTML = array[ix]; 
+responsiveVoice.speak(array[ix], 'Japanese Female');
+}
+
+function dontknow () {
+ix++;
+showWord();
+}
+
+function know () {
+
+$.ajax({
+type:'POST', 
+url: '/tmpincr', 
+data: $.param({ name: array[ix] })
+});
+
+ix++;
+showWord();
+}
+
+
+<% end %>
+
+
+
+<div style="margin-left: 500px;margin-top: 100px;width: 800px;     text-decoration: none; border:1px solid black;">
+  <div id="header" style="text-align:center;">
+    
+    <font color="red" size="7">  
+      <p id="Played" style="font-size:100px;font-family: TakaoExGothic;">
+      </p>
+    </font>
+    
+  </div>
+
+  <button onclick="know()">Know</button>
+  <button onclick="dontknow()">Dontknow</button>
+
+  
+</div>
+
+
