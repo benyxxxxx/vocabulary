@@ -3,7 +3,7 @@ ANKI style open-source web application.
 
 Features:
 
-	1. Memorize your vocabulary. <a href='https://en.wikipedia.org/wiki/Spaced_repetition'>Spaced repetition</a>
+	1. Memorize your vocabulary. https://en.wikipedia.org/wiki/Spaced_repetition
 	2. Groups the words by used kanjis.
 	
 	3. Continuously sound plays the vocabulary.
