@@ -1,34 +1,27 @@
-ANKI style open-source web application.
+== ANKI style open-source web application.
 
 
-Features:
+=== Features:
 
-	1. Memorise your vocabulary. https://en.wikipedia.org/wiki/Spaced_repetition
-	
-	2. Groups the words by used kanjis.
-	
-	3. Continiously sound plays the vocabulary.
-	
-	4. Chrome integration. (Chrome extention is not added yet to the git) 
+1. Memorize your vocabulary. https://en.wikipedia.org/wiki/Spaced_repetition
+2. Groups the words by used kanjis.
+3. Continuously sound plays the vocabulary.
+4. Chrome integration. (Chrome extension is not added yet to the git) 
 
 
-Future devs:
+=== Future devs:
 
-       ** Add Export functionality.
-       ** Automatic examination.
-       ** Parameterised Search(verbs, nouns..)
+* Add Export functionality.
+* Automatic examination.
+* Parameterized Search(verbs, nouns..)
 	 
 
-Key shortcats:
-
+=== Key shortcuts:
 S - speak the word.
 
+=== Dependencies 
 
 * Ruby version 2.2.0
 
-* Database initialization
-
+=== Database initialization
   Run rake db:schema:load to create a new db
-
-
-
